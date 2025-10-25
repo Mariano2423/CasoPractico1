@@ -55,14 +55,16 @@
   <ItemGroup>
     <Compile Include="General\GestionDeFechas\Fecha.cs" />
     <Compile Include="Habitacion\AgregarHabitacion\AgregarHabitacionLN.cs" />
+    <Compile Include="Habitacion\EditarHabitacion\EditarHabitacionLN.cs" />
     <Compile Include="Habitacion\ListaDeHabitacion\ObtenerListaDeHabitacionLN.cs" />
+    <Compile Include="Habitacion\ObtenerHabitacionPorId\ObtenerHabitacionPorIdLN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservas\AgregarReserva\AgregarReservaLN.cs" />
+    <Compile Include="Reservas\ListarHabitacionesParaReserva\ListarHabitacionesParaReservaLN.cs" />
+    <Compile Include="Reservas\ObtenerReservaPorId\ObtenerReservaPorIdLN.cs" />
+    <Compile Include="Reservas\ObtenerReservas\ObtenerReservasLN.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Habitacion\EditarHabitacion\" />
-    <Folder Include="Habitacion\ObtenerHabitacionPorId\" />
-    <Folder Include="Habitacion\ValidarHabitacion\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CasoPractico1.Abstracciones\CasoPractico1.Abstracciones.csproj">
       <Project>{B981A60A-5912-451A-800A-B12DAD73B7CE}</Project>

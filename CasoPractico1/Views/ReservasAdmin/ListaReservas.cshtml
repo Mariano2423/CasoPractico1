@@ -1,0 +1,87 @@
+﻿@model IEnumerable<CasoPractico1.Abstracciones.ModeloParaUI.Reservas.ReservaDto>
+
+@{
+    ViewBag.Title = "Reservas Administrativas";
+}
+
+<h2>Reservas Administrativas</h2>
+
+<p>
+    @Html.ActionLink("Crear Reserva", "AgregarReserva", "ReservasAdmin")
+</p>
+@if (TempData["msg"] != null)
+{<div class="alert alert-warning">@TempData["msg"]</div>}
+
+<form class="form-inline" method="get" action="@Url.Action("Detalles","ReservasAdmin")" style="margin-bottom:12px">
+    <label for="id">Buscar por código de reservación:</label>
+    <input type="number" name="id" id="id" class="form-control" />
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdHabitacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreDeLaPersona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Identificacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MontoTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaNacimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaInicioReserva)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaFinReserva)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdHabitacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreDeLaPersona)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MontoTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicioReserva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaFinReserva)
+            </td>
+            <td>
+            </td>
+        </tr>
+    }
+
+</table>

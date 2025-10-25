@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CasoPractico1.Abstracciones.AccesoADatos.Habitacion.AgregarHabitacion;
 using CasoPractico1.Abstracciones.GestionDeFecha;
-using CasoPractico1.Abstracciones.LogicaDeNegocio.AgregarHabitacion;
+using CasoPractico1.Abstracciones.LogicaDeNegocio.Habitacion.AgregarHabitacion;
 using CasoPractico1.Abstracciones.ModeloParaUI.Habitacion;
 using CasoPractico1.AccesoADatos.Entidades;
 using CasoPractico1.AccesoADatos.Habitacion.AgregarHabitacion;

@@ -54,12 +54,15 @@
   <ItemGroup>
     <Compile Include="Contexto.cs" />
     <Compile Include="Entidades\HabitacionAD.cs" />
+    <Compile Include="Entidades\ReservaAD.cs" />
     <Compile Include="Habitacion\AgregarHabitacion\AgregarHabitacionAD.cs" />
     <Compile Include="Habitacion\EditarHabitacion\EditarHabitacionAD.cs" />
-    <Compile Include="Habitacion\EliminarHabitacion\EliminarHabitacionAD.cs" />
     <Compile Include="Habitacion\ListadeHabitacion\ObtenerListaDeHabitacionAD.cs" />
     <Compile Include="Habitacion\ObtenerHabitacionPorId\ObtenerHabitacionPorIdAD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservas\AgregarReserva\AgregarReservaAD.cs" />
+    <Compile Include="Reservas\ObtenerReservaPorId\ObtenerReservaPorIdAD.cs" />
+    <Compile Include="Reservas\ObtenerReservas\ObtenerReservaAD.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

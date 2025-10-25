@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CasoPractico1.Abstracciones.LogicaDeNegocio.EditarHabitacion
+namespace CasoPractico1.Abstracciones.LogicaDeNegocio.Habitacion.EditarHabitacion
 {
     public interface IEditarHabitacionLN
     {

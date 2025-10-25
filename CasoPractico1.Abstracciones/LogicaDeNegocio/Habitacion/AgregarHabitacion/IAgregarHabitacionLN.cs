@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CasoPractico1.Abstracciones.ModeloParaUI.Habitacion;
 
-namespace CasoPractico1.Abstracciones.LogicaDeNegocio.AgregarHabitacion
+namespace CasoPractico1.Abstracciones.LogicaDeNegocio.Habitacion.AgregarHabitacion
 {
     public interface IAgregarHabitacionLN
     {

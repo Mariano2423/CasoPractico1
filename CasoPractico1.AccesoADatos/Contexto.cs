@@ -16,5 +16,7 @@ namespace CasoPractico1.AccesoADatos
         }
         public DbSet<HabitacionAD> Habitaciones { get; set; }
 
+        public DbSet<ReservaAD> Reservaciones { get; set; }
+
     }
 }

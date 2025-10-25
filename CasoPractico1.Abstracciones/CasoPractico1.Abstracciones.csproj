@@ -45,15 +45,22 @@
   <ItemGroup>
     <Compile Include="AccesoADatos\Habitacion\AgregarHabitacion\IAgregarHabitacionAD.cs" />
     <Compile Include="AccesoADatos\Habitacion\EditarHabitacion\IEditarHabitacionAD.cs" />
-    <Compile Include="AccesoADatos\Habitacion\EliminarHabitacion\IEliminarHabitacionAD.cs" />
     <Compile Include="AccesoADatos\Habitacion\ListaDeHabitacion\IObtenerListaDeHabitacionAD.cs" />
     <Compile Include="AccesoADatos\Habitacion\ObtenerHabitacionPorId\IObtenerHabitacionPorIdAD.cs" />
+    <Compile Include="AccesoADatos\Reservas\AgregarReserva\IAgregarReservaAD.cs" />
+    <Compile Include="AccesoADatos\Reservas\ObtenerReservaPorId\IObtenerReservaPorIdAD.cs" />
+    <Compile Include="AccesoADatos\Reservas\ObtenerReservas\IObtenerReservasAD.cs" />
     <Compile Include="GestionDeFecha\IFecha.cs" />
-    <Compile Include="LogicaDeNegocio\AgregarHabitacion\IAgregarHabitacionLN.cs" />
-    <Compile Include="LogicaDeNegocio\EditarHabitacion\IEditarHabitacionLN.cs" />
-    <Compile Include="LogicaDeNegocio\EliminarHabitacion\IEliminarHabitacionLN.cs" />
-    <Compile Include="LogicaDeNegocio\ListaDeHabitacion\IObtenerListaDeHabitacionLN.cs" />
+    <Compile Include="LogicaDeNegocio\Habitacion\AgregarHabitacion\IAgregarHabitacionLN.cs" />
+    <Compile Include="LogicaDeNegocio\Habitacion\EditarHabitacion\IEditarHabitacionLN.cs" />
+    <Compile Include="LogicaDeNegocio\Habitacion\ListaDeHabitacion\IObtenerListaDeHabitacionLN.cs" />
+    <Compile Include="LogicaDeNegocio\Habitacion\ObtenerHabitacionPorId\IObtenerHabitacionPorIdLN.cs" />
+    <Compile Include="LogicaDeNegocio\Reservas\AgregarReserva\IAgregarReservaLN.cs" />
+    <Compile Include="LogicaDeNegocio\Reservas\ListarHabitacionParaReserva\IListarHabitacionesParaReservaLN.cs" />
+    <Compile Include="LogicaDeNegocio\Reservas\ObtenerReservaPorId\IObtenerReservaPorIdLN.cs" />
+    <Compile Include="LogicaDeNegocio\Reservas\ObtenerReserva\IObtenerReservaLN.cs" />
     <Compile Include="ModeloParaUI\Habitacion\HabitacionDto.cs" />
+    <Compile Include="ModeloParaUI\Reservas\ReservaDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

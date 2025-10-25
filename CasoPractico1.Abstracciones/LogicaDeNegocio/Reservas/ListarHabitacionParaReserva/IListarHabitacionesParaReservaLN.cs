@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using CasoPractico1.Abstracciones.ModeloParaUI.Habitacion;
 
-namespace CasoPractico1.Abstracciones.LogicaDeNegocio.ListaDeHabitacion
+namespace CasoPractico1.Abstracciones.LogicaDeNegocio.Reservas.ListarHabitacionParaReserva
 {
-    public  interface IObtenerListaDeHabitacionLN
+    public interface IListarHabitacionesParaReservaLN
     {
-        List<HabitacionDto> Obtener();
+        List<HabitacionDto> ObtenerDisponible();
     }
 }

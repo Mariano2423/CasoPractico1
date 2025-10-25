@@ -4,11 +4,16 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using CasoPractico1.Abstracciones.ModeloParaUI.Habitacion;
 using CasoPractico1.LogicaDeNegocio.Habitacion.ListaDeHabitacion;
-using CasoPractico1.Abstracciones.LogicaDeNegocio.ListaDeHabitacion;
 using CasoPractico1.Abstracciones.AccesoADatos.Habitacion.AgregarHabitacion;
-using CasoPractico1.Abstracciones.LogicaDeNegocio.AgregarHabitacion;
 using CasoPractico1.LogicaDeNegocio.Habitacion.AgregarHabitacion;
 using System.Collections.ObjectModel;
+using CasoPractico1.Abstracciones.AccesoADatos.Habitacion.EditarHabitacion;
+using CasoPractico1.LogicaDeNegocio.Habitacion.EditarHabitacion;
+using CasoPractico1.LogicaDeNegocio.Habitacion.ObtenerHabitacionPorId;
+using CasoPractico1.Abstracciones.LogicaDeNegocio.Habitacion.ListaDeHabitacion;
+using CasoPractico1.Abstracciones.LogicaDeNegocio.Habitacion.AgregarHabitacion;
+using CasoPractico1.Abstracciones.LogicaDeNegocio.Habitacion.EditarHabitacion;
+using CasoPractico1.Abstracciones.LogicaDeNegocio.Habitacion.ObtenerHabitacionPorId;
 
 namespace CasoPractico1.Controllers
 {
@@ -16,11 +21,15 @@ namespace CasoPractico1.Controllers
     {
         private readonly IObtenerListaDeHabitacionLN _obtenerlaListaDeHabitacionLN;
         private readonly IAgregarHabitacionLN _agregarHabitacionLN;
+        private readonly IEditarHabitacionLN _editarHabitacionLN;
+        private readonly IObtenerHabitacionPorIdLN _obtenerHabitacionPorIdLN;
 
         public HabitacionController()
         {
             _obtenerlaListaDeHabitacionLN = new ObtenerListaDeHabitacionLN();
             _agregarHabitacionLN = new AgregarHabitacionLN();
+            _editarHabitacionLN = new EditarHabitacionLN();
+            _obtenerHabitacionPorIdLN = new ObtenerHabitacionPorIdLN();
         }
 
         
@@ -60,59 +69,50 @@ namespace CasoPractico1.Controllers
             {
                 // TODO: Add insert logic here
                 int cantidadDeFilasAfectadas = await _agregarHabitacionLN.Agregar(laHabitacionAGuardar);
-                return RedirectToAction("ListaDeHabitaciones");
+                return RedirectToAction("ListaDeHabitacion");
             }
             catch
             {
-                return View();
+                return View(laHabitacionAGuardar);
             }
         }
 
         // GET: Habitacion/Edit/5
-        public ActionResult EditarHabitacion(int id)
+        public ActionResult EditarHabitacion(int Id)
         {
-            HabitacionDto laHabitacion = new HabitacionDto();
-            laHabitacion .Id = id;
-            laHabitacion .CodigoDeHabitacion = "HAB001";
-            laHabitacion .NombreDeHabitacion = "Habitación Sencilla";
-            laHabitacion .CantidadDeHuespedesPermitidos = 2;
-            laHabitacion .CantidadDeCamas = 1;
-            laHabitacion .CantidadDeBanos = 1;
-            laHabitacion .Ubicacion = "Piso 1";
-            laHabitacion .EncargadoDeLimpieza = "Juan Perez";
-            laHabitacion .TipoDeHabitacion = TipoHabitacion.Junior;
-            laHabitacion .CostoDeLimpieza = 50.0m;
-            laHabitacion .CostoDeReserva = 100.0m;
-            laHabitacion .FechaDeRegistro = DateTime.Now.AddMonths(-2);
-            laHabitacion .Estado = true;
+            HabitacionDto laHabitacion = _obtenerHabitacionPorIdLN.Obtener(Id);
             return View(laHabitacion);
+            
         }
 
         // POST: Habitacion/Edit/5
         [HttpPost]
-        public ActionResult EditarHabitacion(int id, FormCollection collection)
+        public async Task<ActionResult> EditarHabitacion(HabitacionDto laHabitacionParaEditar)
         {
             try
             {
-                // TODO: Add update logic here
+               var original = _obtenerHabitacionPorIdLN.Obtener(laHabitacionParaEditar.Id);
+                laHabitacionParaEditar.FechaDeRegistro = original.FechaDeRegistro;
 
-                return RedirectToAction("Index");
+                laHabitacionParaEditar.FechaDeModificacion = DateTime.Now;
+                int filasAfectadas = await _editarHabitacionLN.Editar(laHabitacionParaEditar);
+                return RedirectToAction("ListaDeHabitacion");
             }
             catch
             {
-                return View();
+                return View(laHabitacionParaEditar);
             }
         }
 
         // GET: Habitacion/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult EliminarHabitacion(int id)
         {
             return View();
         }
 
         // POST: Habitacion/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult EliminarHabitacion(int id, FormCollection collection)
         {
             try
             {

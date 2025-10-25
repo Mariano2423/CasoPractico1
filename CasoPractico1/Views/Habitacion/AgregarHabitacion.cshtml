@@ -7,12 +7,12 @@
 <h2>AgregarHabitacion</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("AgregarHabitacion", "Habitacion", FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>HabitacionDto</h4>
+        <h4></h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -107,7 +107,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver a la lista", "ListaDeHabitacion", "Habitacion")
 </div>
 
 @section Scripts {
